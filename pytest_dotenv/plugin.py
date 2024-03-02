@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from dotenv import load_dotenv, find_dotenv
+from dotenv import read_dotenv, find_dotenv
 
 import pytest
 
@@ -25,10 +25,10 @@ def pytest_addoption(parser):
 def pytest_load_initial_conftests(args, early_config, parser):
     _override = early_config.getini("env_override_existing_values")
     for filename in early_config.getini("env_files"):
-        load_dotenv(find_dotenv(filename, usecwd=True), override=_override)
+        read_dotenv(find_dotenv(filename, usecwd=True), override=_override)
 
 
 def pytest_sessionstart(session):
     config = session.config
     if config.getoption("envfile", default=None) is not None:
-        load_dotenv(dotenv_path=config.getoption("envfile"), override=True)
+        read_dotenv(dotenv_path=config.getoption("envfile"), override=True)
