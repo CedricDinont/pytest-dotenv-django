@@ -9,14 +9,14 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='pytest-dotenv',
+    name='pytest-dotenv-django',
     description=description,
     long_description=long_description,
     long_description_content_type='text/markdown',
     version='0.5.2',
     author='Marcel Radischat',
     author_email='marcel@quiqua.eu',
-    url='https://github.com/quiqua/pytest-dotenv',
+    url='https://github.com/CedricDinont/pytest-django-dotenv.git',
     download_url='https://github.com/quiqua/pytest-dotenv/tarball/0.5.2',
     packages=['pytest_dotenv'],
     entry_points={'pytest11': ['dotenv = pytest_dotenv.plugin']},
