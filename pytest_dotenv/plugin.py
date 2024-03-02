@@ -31,4 +31,4 @@ def pytest_load_initial_conftests(args, early_config, parser):
 def pytest_sessionstart(session):
     config = session.config
     if config.getoption("envfile", default=None) is not None:
-        read_dotenv(dotenv_path=config.getoption("envfile"), override=True)
+        read_dotenv(config.getoption("envfile"), override=True)
